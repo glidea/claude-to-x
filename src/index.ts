@@ -30,6 +30,12 @@ async function handle(request: Request): Promise<Response> {
 
     const typeParam = pathParts[0]
     const providerUrlParts = pathParts.slice(1, -2)
+
+    // [..., 'https:', ...] ==> [..., 'https:/', ...]
+    if (pathParts[1].startsWith('http')) {
+        pathParts[1] = pathParts[1] + '/'
+    }
+
     const baseUrl = providerUrlParts.join('/')
     if (!typeParam || !baseUrl) {
         return new Response('Missing type or provider_url in path', { status: 400 })

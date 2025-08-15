@@ -14,6 +14,9 @@ export class impl implements provider.Provider {
         headers.set('x-goog-api-key', apiKey)
         headers.set('Content-Type', 'application/json')
 
+        // 避免 gemini 认证问题: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential
+        headers.delete('authorization')
+
         return new Request(finalUrl, {
             method: 'POST',
             headers,

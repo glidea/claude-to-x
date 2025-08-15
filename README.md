@@ -47,9 +47,9 @@ curl -X POST https://claude-worker-proxy.xxxx.workers.dev/gemini/https://generat
 {
   "env": {
     "ANTHROPIC_BASE_URL": "https://claude-worker-proxy.xxxx.workers.dev/gemini/https://xxx.com/v1beta", # https://xxx.com/v1beta： 注意带版本号；需要支持函数调用！
-    "ANTHROPIC_API_KEY": "sk-xxxx",
     "ANTHROPIC_MODEL": "gemini-2.5-pro", # 大模型，按需修改
     "ANTHROPIC_SMALL_FAST_MODEL": "gemini-2.5-flash", # 小模型。也许你并不需要 ccr 那么强大的 route
+    "ANTHROPIC_CUSTOM_HEADERS": "x-api-key:你的 gemini api key",
     "API_TIMEOUT_MS": "600000"
   }
 }
